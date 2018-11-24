@@ -1,13 +1,23 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.5/css/uikit.min.css"/>
     <script src="wasm_exec.js"></script>
     <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
     <script src="lang-go.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.5/js/uikit.min.js"></script>
 </head>
 <body>
-<textarea id="gosrc" name="#" rows="100" cols="100">input</textarea><br>
-<pre class="prettyprint"><code id="goout" class="language-go"></code></pre><br>
+<h1 class=".uk-text-large">Go AST Viewer</h1>
+<div class="uk-grid">
+    <div class="uk-width-1-2">
+        <textarea id="gosrc" name="#" rows="100" cols="100"></textarea><br>
+    </div>
+    <div class="uk-width-1-2">
+        <pre class="prettyprint"><code id="goout"></code></pre>
+    </div>
+</div>
 <script>
     const go = new Go();
     const gosrc = document.getElementById("gosrc")

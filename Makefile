@@ -11,6 +11,5 @@ tools/goexec: vendor/github.com/shurcooL/goexec
 
 vendor/github.com/shurcooL/goexec: vendor
 
-vendor: Gopkg.toml
+vendor: Gopkg.toml Gopkg.lock
 	dep ensure
-
