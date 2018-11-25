@@ -22,4 +22,5 @@
 
 # End of https://www.gitignore.io/api/go
 tools/goexec
+tools/statik
 public/main.wasm

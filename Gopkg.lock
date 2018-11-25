@@ -2,6 +2,17 @@
 
 
 [[projects]]
+  digest = "1:3d47e9aa3a61df89757cd91650f9b3863f9e5b176c229067fbde18cf4aa2f898"
+  name = "github.com/rakyll/statik"
+  packages = [
+    ".",
+    "fs",
+  ]
+  pruneopts = "UT"
+  revision = "1355192d24db2566a83c3914e187e2a7e7679832"
+  version = "v0.1.5"
+
+[[projects]]
   branch = "master"
   digest = "1:10894abc5fe2105036b7c3affb576e777aecc20282e431b5bf9ab541c81b3b2d"
   name = "github.com/shurcooL/go"
@@ -47,6 +58,10 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  input-imports = ["github.com/shurcooL/goexec"]
+  input-imports = [
+    "github.com/rakyll/statik",
+    "github.com/rakyll/statik/fs",
+    "github.com/shurcooL/goexec",
+  ]
   solver-name = "gps-cdcl"
   solver-version = 1
