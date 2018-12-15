@@ -8,7 +8,7 @@ statik/statik.go: public wasm
 	tools/statik -src=./public
 
 wasm:
-	GOOS=$(GOOS) GOARCH=$(GOARCH) go build -o public/main.wasm
+	GOOS=$(GOOS) GOARCH=$(GOARCH) go build -o public/main.wasm ./wasmmain/main.go
 
 tools: tools/goexec tools/statik
 

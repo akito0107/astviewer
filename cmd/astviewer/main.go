@@ -21,5 +21,5 @@ func main() {
 	}
 	p := fmt.Sprintf(":%d", *port)
 
-	http.ListenAndServe(p, http.FileServer(statikFS))
+	log.Fatal(http.ListenAndServe(p, http.FileServer(statikFS)))
 }
