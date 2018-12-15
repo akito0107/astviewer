@@ -1,30 +1,32 @@
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.5/css/uikit.min.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Go AST Viewer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
     <script src="wasm_exec.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.5/js/uikit.min.js"></script>
 </head>
-<body onload="PR.prettyPrint()">
-<h1 class=".uk-text-large">Go AST Viewer</h1>
-<div class="uk-grid">
-    <div id="container" class="uk-width-1-2">
-    </div>
-    <div class="uk-width-1-2">
-        <pre id="goout" class="prettyprint lang-go">
+<body style="height: 800px;">
+<section class="section" style="height:100%">
+    <div class="container" style="height:100%">
+        <h1 class="title">
+            Go AST Viewer
+        </h1>
+
+        <div class="columns" style="height:100%">
+            <div class="column">
+                <div id="gosrc" style="height:100%;">
+                </div>
+            </div>
+            <div class="column">
+        <pre id="goout">
+            ffffffff
         </pre>
+            </div>
+        </div>
     </div>
-</div>
-<script>
-    const go = new Go();
-    const gosrc = document.getElementById("gosrc")
-    gosrc.addEventListener('change', () => {
-        WebAssembly.instantiateStreaming(fetch("main.wasm"), go.importObject).then((result) => {
-            go.run(result.instance);
-            PR.prettyPrint();
-        });
-    });
-</script>
+</section>
+<script src="bundle.js"></script>
 </body>
 </html>

@@ -4,7 +4,7 @@ GOARCH=wasm
 build: statik/statik.go
 	go build -o bin/astviewer cmd/astviewer/main.go
 
-statik/statik.go: public wasm
+statik/statik.go: public wasm public/bundle.js
 	tools/statik -src=./public
 
 wasm:
@@ -24,3 +24,6 @@ vendor/github.com/rakyll/statik: vendor
 
 vendor: Gopkg.toml Gopkg.lock
 	dep ensure
+
+public/bundle.js: front/src
+	cd front; yarn webpack

@@ -9,9 +9,20 @@ func main() {
 }
 `
 
-monaco.editor.create(document.getElementById("container"), {
+console.log('hoge')
+
+monaco.editor.create(document.getElementById("gosrc"), {
     value: gocode,
     language: "go",
     lineNumbers: "on",
     theme: "vs-dark",
+});
+
+const go = new Go();
+const gosrc = document.getElementById("gosrc")
+gosrc.addEventListener('change', () => {
+    WebAssembly.instantiateStreaming(fetch("main.wasm"), go.importObject).then((result) => {
+        go.run(result.instance);
+        PR.prettyPrint();
+    });
 });
