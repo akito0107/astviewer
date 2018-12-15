@@ -3,20 +3,17 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.5/css/uikit.min.css"/>
     <script src="wasm_exec.js"></script>
-    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
-    <script src="lang-go.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.5/js/uikit.min.js"></script>
 </head>
 <body onload="PR.prettyPrint()">
 <h1 class=".uk-text-large">Go AST Viewer</h1>
 <div class="uk-grid">
-    <div class="uk-width-1-2">
-        <textarea id="gosrc" name="#" rows="100" cols="100"></textarea><br>
+    <div id="container" class="uk-width-1-2">
     </div>
     <div class="uk-width-1-2">
-        <pre id="goout" class="prettyprint lang-go"> &ast.File{Doc:(*ast.CommentGroup)(nil), Package:1, Name:(*ast.Ident)(0xc00a080), Decls:[]ast.Decl{(*ast.GenDecl)(0xc02a200), (*ast.FuncDecl)(0xc028930)}, Scope:(*ast.Scope)(0xc00e250), Imports:[]*ast.ImportSpec{(*ast.ImportSpec)(0xc028330), (*ast.ImportSpec)(0xc028360), (*ast.ImportSpec)(0xc028390), (*ast.ImportSpec)(0xc0283c0), (*ast.ImportSpec)(0xc0283f0), (*ast.ImportSpec)(0xc028420), (*ast.ImportSpec)(0xc028450)}, Unresolved:[]*ast.Ident{(*ast.Ident)(0xc00a220), (*ast.Ident)(0xc00a4e0), (*ast.Ident)(0xc00a540), (*ast.Ident)(0xc00a620), (*ast.Ident)(0xc00a6a0), (*ast.Ident)(0xc00a6c0), (*ast.Ident)(0xc00a7e0), (*ast.Ident)(0xc00a960), (*ast.Ident)(0xc00a9e0), (*ast.Ident)(0xc00aa00), (*ast.Ident)(0xc00aaa0), (*ast.Ident)(0xc00ab00), (*ast.Ident)(0xc00ab60), (*ast.Ident)(0xc00ac00), (*ast.Ident)(0xc00acc0), (*ast.Ident)(0xc00ae40), (*ast.Ident)(0xc00ae60), (*ast.Ident)(0xc00af20), (*ast.Ident)(0xc00afa0)}, Comments:[]*ast.CommentGroup(nil)}
- </pre>
+        <pre id="goout" class="prettyprint lang-go">
+        </pre>
     </div>
 </div>
 <script>
