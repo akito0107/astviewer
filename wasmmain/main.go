@@ -50,10 +50,10 @@ func main() {
 		switch x := n.(type) {
 		case *ast.ArrayType:
 			view.Label = "ArrayType"
-			view.Value = fmt.Sprintf("Len: %s, Elt: %v", x.Len, x.Elt)
+			view.Value = fmt.Sprintf("Len: %s, Elt: %#v", x.Len, x.Elt)
 		case *ast.AssignStmt:
 			view.Label = "AssignStmt"
-			view.Value = fmt.Sprintf("Lhs: %v, Tok: %d, Rhs: %v", x.Lhs, x.Tok, x.Rhs)
+			view.Value = fmt.Sprintf("Lhs: %#v, Tok: %d, Rhs: %#v", x.Lhs, x.Tok, x.Rhs)
 		case *ast.BadDecl:
 			view.Label = "BadDecl"
 		case *ast.BadExpr:
@@ -65,77 +65,77 @@ func main() {
 			view.Value = fmt.Sprintf("Kind: %d, Value: %s", x.Kind, x.Value)
 		case *ast.BinaryExpr:
 			view.Label = "BinaryExpr"
-			view.Value = fmt.Sprintf("X: %v, Op: %d, Y: %v", x.X, x.Op, x.Y)
+			view.Value = fmt.Sprintf("X: %#v, Op: %d, Y: %#v", x.X, x.Op, x.Y)
 		case *ast.BlockStmt:
 			view.Label = "BlockStmt"
-			view.Value = fmt.Sprintf("List: %v", x.List)
+			view.Value = fmt.Sprintf("List: %#v", x.List)
 		case *ast.BranchStmt:
 			view.Label = "BranchStmt"
-			view.Value = fmt.Sprintf("Tok: %d, Label: %v", x.Tok, x.Label)
+			view.Value = fmt.Sprintf("Tok: %d, Label: %#v", x.Tok, x.Label)
 		case *ast.CallExpr:
 			view.Label = "CallExpr"
-			view.Value = fmt.Sprintf("Fun: %v, Args: %v", x.Fun, x.Args)
+			view.Value = fmt.Sprintf("Fun: %#v, Args: %#v", x.Fun, x.Args)
 		case *ast.CaseClause:
 			view.Label = "CaseClause"
-			view.Value = fmt.Sprintf("List: %v, Body: %v", x.List, x.Body)
+			view.Value = fmt.Sprintf("List: %#v, Body: %#v", x.List, x.Body)
 		case *ast.ChanType:
 			view.Label = "ChanType"
-			view.Value = fmt.Sprintf("Dir: %v, Value: %v", x.Dir, x.Value)
+			view.Value = fmt.Sprintf("Dir: %#v, Value: %#v", x.Dir, x.Value)
 		case *ast.CommClause:
 			view.Label = "CommClause"
-			view.Value = fmt.Sprintf("Comm: %v, Body: %v", x.Comm, x.Body)
+			view.Value = fmt.Sprintf("Comm: %#v, Body: %#v", x.Comm, x.Body)
 		case *ast.Comment:
 			view.Label = "Comment"
 			view.Value = fmt.Sprintf("Text: %s", x.Text)
 		case *ast.CommentGroup:
 			view.Label = "CommentGroup"
-			view.Value = fmt.Sprintf("List: %v", x.List)
+			view.Value = fmt.Sprintf("List: %#v", x.List)
 		case *ast.CompositeLit:
 			view.Label = "CompositeLit"
-			view.Value = fmt.Sprintf("Type: %v, Elts: %v, Incomplete: %v", x.Type, x.Elts, x.Incomplete)
+			view.Value = fmt.Sprintf("Type: %#v, Elts: %#v, Incomplete: %v", x.Type, x.Elts, x.Incomplete)
 		case *ast.DeclStmt:
 			view.Label = "DeclStmt"
-			view.Value = fmt.Sprintf("Decl: %v", x.Decl)
+			view.Value = fmt.Sprintf("Decl: %#v", x.Decl)
 		case *ast.DeferStmt:
 			view.Label = "DeferStmt"
-			view.Label = fmt.Sprintf("Call: %+v", x.Call)
+			view.Label = fmt.Sprintf("Call: %#v", x.Call)
 		case *ast.Ellipsis:
 			view.Label = "Ellipsis"
-			view.Value = fmt.Sprintf("Elt: %v", x.Elt)
+			view.Value = fmt.Sprintf("Elt: %#v", x.Elt)
 		case *ast.EmptyStmt:
 			view.Label = "EmptyStmt"
 		case *ast.ExprStmt:
 			view.Label = "ExprStmt"
-			view.Value = fmt.Sprintf("X: %v", x.X)
+			view.Value = fmt.Sprintf("X: %#v", x.X)
 		case *ast.Field:
 			view.Label = "Field"
-			view.Value = fmt.Sprintf("Doc: %v, Names: %s, Type: %s, Tag: %v, Comment: %v", x.Doc, x.Names, x.Type, x.Tag, x.Comment)
+			view.Value = fmt.Sprintf("Doc: %#v, Names: %s, Type: %s, Tag: %#v, Comment: %#v", x.Doc, x.Names, x.Type, x.Tag, x.Comment)
 		case *ast.FieldList:
 			view.Label = "FieldList"
-			view.Value = fmt.Sprintf("List: %v", x.List)
+			view.Value = fmt.Sprintf("List: %#v", x.List)
 		case *ast.File:
 			view.Label = "File"
 		case *ast.ForStmt:
 			view.Label = "ForStmt"
-			view.Value = fmt.Sprintf("Init: %v, Cond: %v, Post: %v, Body: %v", x.Init, x.Cond, x.Post, x.Body)
+			view.Value = fmt.Sprintf("Init: %#v, Cond: %#v, Post: %#v, Body: %#v", x.Init, x.Cond, x.Post, x.Body)
 		case *ast.FuncDecl:
 			view.Label = "FuncDecl"
-			view.Value = fmt.Sprintf("Doc: %v, Recv: %v, Name: %s, Type: %v, Body: %v", x.Doc, x.Recv, x.Name, x.Type, x.Body)
+			view.Value = fmt.Sprintf("Doc: %#v, Recv: %#v, Name: %s, Type: %#v, Body: %#v", x.Doc, x.Recv, x.Name, x.Type, x.Body)
 		case *ast.FuncLit:
 			view.Label = "FuncLit"
-			view.Value = fmt.Sprintf("Type: %v, Body: %v", x.Type, x.Body)
+			view.Value = fmt.Sprintf("Type: %#v, Body: %#v", x.Type, x.Body)
 		case *ast.FuncType:
 			view.Label = "FuncType"
-			view.Value = fmt.Sprintf("Param: %+v, Results: %+v", x.Params, x.Results)
+			view.Value = fmt.Sprintf("Param: %#v, Results: %#v", x.Params, x.Results)
 		case *ast.GenDecl:
 			view.Label = "GenDecl"
-			view.Value = fmt.Sprintf("Doc: %+v, Tok: %d, Specs: %+v", x.Doc, x.Tok, x.Specs)
+			view.Value = fmt.Sprintf("Doc: %#v, Tok: %d, Specs: %#v", x.Doc, x.Tok, x.Specs)
 		case *ast.GoStmt:
 			view.Label = "GoStmt"
-			view.Value = fmt.Sprintf("Call: %+v", x.Call)
+			view.Value = fmt.Sprintf("Call: %#v", x.Call)
 		case *ast.Ident:
 			view.Label = "Ident"
-			view.Value = fmt.Sprintf("Name: %s, Obj: %+v", x.Name, x.Obj)
+			view.Value = fmt.Sprintf("Name: %s, Obj: %#v", x.Name, x.Obj)
 		case *ast.IfStmt:
 			view.Label = "IfStmt"
 			view.Value = fmt.Sprintf("Init: %#v, Cond: %#v, Body: %#v, Else: %#v", x.Init, x.Cond, x.Body, x.Else)
