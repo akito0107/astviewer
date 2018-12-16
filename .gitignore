@@ -27,3 +27,4 @@ public/main.wasm
 
 public/*.js
 !public/wasm_exec.js
+bin

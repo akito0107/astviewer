@@ -1,10 +1,10 @@
 GOOS=js
 GOARCH=wasm
 
-build: statik/statik.go
+build: tools statik/statik.go
 	go build -o bin/astviewer cmd/astviewer/main.go
 
-statik/statik.go: public wasm public/bundle.js
+statik/statik.go: wasm public/bundle.js
 	tools/statik -src=./public
 
 wasm:
@@ -25,5 +25,8 @@ vendor/github.com/rakyll/statik: vendor
 vendor: Gopkg.toml Gopkg.lock
 	dep ensure
 
-public/bundle.js: front/src
-	cd front; yarn webpack
+public/bundle.js: front/src/index.js front/node_modules
+	cd front; NODE_ENV=production yarn webpack
+
+front/node_modules: front/package.json front/yarn.lock
+	cd front; yarn install
