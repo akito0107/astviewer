@@ -11,7 +11,7 @@ func main() {
 
 console.log('hoge')
 
-monaco.editor.create(document.getElementById("gosrc"), {
+const editor = monaco.editor.create(document.getElementById("gosrc"), {
     value: gocode,
     language: "go",
     lineNumbers: "on",
@@ -19,10 +19,12 @@ monaco.editor.create(document.getElementById("gosrc"), {
 });
 
 const go = new Go();
-const gosrc = document.getElementById("gosrc")
-gosrc.addEventListener('change', () => {
-    WebAssembly.instantiateStreaming(fetch("main.wasm"), go.importObject).then((result) => {
-        go.run(result.instance);
-        PR.prettyPrint();
-    });
+
+const model = editor.getModel();
+
+model.onDidChangeContent((event) => {
+    console.log(model.getValue());
+    // WebAssembly.instantiateStreaming(fetch("main.wasm"), go.importObject).then((result) => {
+    //     go.run(result.instance);
+    // });
 });
