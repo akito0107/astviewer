@@ -2,52 +2,66 @@
 
 
 [[projects]]
+  digest = "1:d7aa7f7c54cd97937e44e77ba9dbc1c838fa0eb1f596500e53e61431a73c6845"
   name = "github.com/rakyll/statik"
   packages = [
     ".",
-    "fs"
+    "fs",
   ]
+  pruneopts = "UT"
   revision = "1355192d24db2566a83c3914e187e2a7e7679832"
   version = "v0.1.5"
 
 [[projects]]
   branch = "master"
+  digest = "1:3a8e95047ce5bbf0f49ec4a12903fd515ce32800e10b50b71eec3304e4454652"
   name = "github.com/shurcooL/go"
   packages = [
     "parserutil",
     "printerutil",
     "reflectfind",
     "reflectsource",
-    "trim"
+    "trim",
   ]
+  pruneopts = "UT"
   revision = "58262d155ee0c659f3e3963bfccbac0f6a6a1d2b"
 
 [[projects]]
   branch = "master"
+  digest = "1:c347b6831c73fad4137117fb7e2cf1bc7ff03206ddcd7fb184e9af4fc96fa5b6"
   name = "github.com/shurcooL/go-goon"
   packages = ["."]
+  pruneopts = "UT"
   revision = "37c2f522c041b74919a9e5e3a6c5c47eb34730a5"
 
 [[projects]]
   branch = "master"
+  digest = "1:d76852d31b606e3d352b9972d62bc4476e63b75994866906e43418003f4b1bbb"
   name = "github.com/shurcooL/goexec"
   packages = ["."]
+  pruneopts = "UT"
   revision = "67b40f7358c4d2374e5372905ba1f9a4af90607f"
 
 [[projects]]
   branch = "master"
+  digest = "1:6511064c08bff306dd24fa83ea82e160009fa7572240b70173b25d1dbc3e1872"
   name = "golang.org/x/tools"
   packages = [
     "go/ast/astutil",
     "imports",
     "internal/fastwalk",
-    "internal/gopathwalk"
+    "internal/gopathwalk",
   ]
+  pruneopts = "UT"
   revision = "04b5d21e00f1f47bd824a6ade581e7189bacde87"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "2873115f63e978f6073b7934cf9f5b9132156f6af25d8208977866c43c3dc077"
+  input-imports = [
+    "github.com/rakyll/statik",
+    "github.com/rakyll/statik/fs",
+    "github.com/shurcooL/goexec",
+  ]
   solver-name = "gps-cdcl"
   solver-version = 1
