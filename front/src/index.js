@@ -10,30 +10,43 @@ func main() {
 }
 `;
 
+if (!WebAssembly.instantiateStreaming) {
+  // polyfill
+  WebAssembly.instantiateStreaming = async (resp, importObject) => {
+    const source = await (await resp).arrayBuffer();
+    return await WebAssembly.instantiate(source, importObject);
+  };
+}
+
 const editor = monaco.editor.create(document.getElementById("monaco-editor"), {
   value: gocode,
   language: "go",
   lineNumbers: "on",
-  theme: "vs-dark"
+  theme: "vs-dark",
 });
 const input = document.getElementById("gosrc");
-
-const go = new Go();
 
 const model = editor.getModel();
 let rows = document.getElementsByClassName("astline");
 
+const go = new Go();
+let mod, inst;
+
 model.onDidChangeContent(() => {
-  input.value = model.getValue();
-  WebAssembly.instantiateStreaming(fetch("main.wasm"), go.importObject).then(
-    result => {
-      go.run(result.instance);
+  WebAssembly.instantiateStreaming(fetch("main.wasm"), go.importObject)
+    .then((result) => {
+      mod = result.module;
+      inst = result.instance;
+      input.value = model.getValue();
+      go.run(inst);
       rows = document.getElementsByClassName("astline");
-    }
-  );
+    })
+    .catch((err) => {
+      console.error(err);
+    });
 });
 
-editor.onDidChangeCursorSelection(event => {
+editor.onDidChangeCursorSelection((event) => {
   const start = event.selection.startLineNumber;
   const end = event.selection.endLineNumber;
   $(".astline").removeClass("selected");

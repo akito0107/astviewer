@@ -1,3 +1,4 @@
+//go:build js && wasm
 // +build js,wasm
 
 package main
@@ -33,7 +34,7 @@ func main() {
 	fset := token.NewFileSet()
 	f, err := parser.ParseFile(fset, "", src, parser.ParseComments)
 	if err != nil {
-		fmt.Printf("%+v\n", err)
+		fmt.Printf("parse error %+v\n", err)
 		return
 	}
 	ast.Inspect(f, func(n ast.Node) bool {
