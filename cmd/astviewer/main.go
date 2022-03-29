@@ -6,20 +6,14 @@ import (
 	"log"
 	"net/http"
 
-	_ "github.com/akito0107/astviewer/statik"
-	"github.com/rakyll/statik/fs"
+	"github.com/akito0107/astviewer"
 )
 
 var port = flag.Int("p", 8080, "listen port")
 
 func main() {
 	flag.Parse()
-
-	statikFS, err := fs.New()
-	if err != nil {
-		log.Fatal(err)
-	}
 	p := fmt.Sprintf(":%d", *port)
 
-	log.Fatal(http.ListenAndServe(p, http.FileServer(statikFS)))
+	log.Fatal(http.ListenAndServe(p, http.FileServer(http.FS(astviewer.PublicFS))))
 }
